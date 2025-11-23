@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #0f172a; color: #e2e8f0; }
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 22px; margin: 0 0 16px; }
+.toolbar { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 16px; }
+.tool-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { background: #2563eb; color: #fff; border: none; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: 600; box-shadow: 0 1px 0 rgba(255,255,255,0.05) inset, 0 6px 14px rgba(37,99,235,0.25); }
+.input { background: #0f172a; color: #e2e8f0; border: 1px solid #1f2937; padding: 10px 14px; border-radius: 10px; }
+.btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+.preview { background: #0b1220; border: 1px solid #1f2937; border-radius: 16px; padding: 16px; min-height: 260px; display: flex; align-items: center; justify-content: center; }
+#previewImg { max-width: 100%; max-height: 60vh; display: none; border-radius: 8px; }
+.pdf-panel { margin-top: 16px; background: #0b1220; border: 1px solid #1f2937; border-radius: 16px; padding: 12px; }
+.pdf-header { font-weight: 700; margin-bottom: 8px; opacity: 0.8; }
+.pdf-frame { width: 100%; height: 360px; background: #0f172a; border: none; border-radius: 10px; display: none; }
+.status { margin-top: 12px; min-height: 24px; color: #93c5fd; font-size: 14px; }
+.pages { margin-top: 16px; }
+.pages-header { font-weight: 700; margin-bottom: 8px; opacity: 0.8; }
+.pages-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+.page-item { border: 1px solid #1f2937; border-radius: 12px; padding: 8px; background: #0b1220; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.page-thumb { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+.page-actions { display: flex; gap: 6px; }
+.page-actions .btn { padding: 6px 8px; font-size: 12px; }
+.page-item.active { outline: 2px solid #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.25); }
+.modal-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+.hidden { display: none; }
+.modal-content { background: #0b1220; border: 1px solid #1f2937; border-radius: 12px; padding: 16px; width: min(92vw, 720px); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.icon { background: transparent; color: #fff; border: none; font-size: 18px; cursor: pointer; }
+#signCanvas { width: 100%; height: 360px; background: #0f172a; border: 1px dashed #334155; border-radius: 8px; }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 8px; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belge Dönüştürücü ve İmzalama</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://unpkg.com/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+  <script src="https://unpkg.com/heic2any/dist/heic2any.min.js"></script>
+  <script src="https://docs.opencv.org/4.x/opencv.js"></script>
+  <script src="https://unpkg.com/html-docx-js/dist/html-docx.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Fotoğraf → PDF/Word ve İmza</h1>
+    <div class="toolbar">
+      <div class="tool-group">
+        <label class="btn" title="Bir veya birden fazla belge fotoğrafı seçin">
+          📁 Görsel Yükle
+          <input id="fileInput" type="file" accept="image/*" multiple hidden />
+        </label>
+        <label class="btn" title="Yeni bir sayfa ekleyin">
+          ➕ Sayfa Ekle
+          <input id="addPageInput" type="file" accept="image/*" hidden />
+        </label>
+        <button id="generatePdfBtn" class="btn" disabled title="Seçili veya tüm sayfalardan tek PDF">📄 PDF’e Çevir</button>
+        <button id="openSignPadBtn" class="btn" disabled title="İmza padi ile sayfaya ıslak imza ekle">✍️ İmza Ekle</button>
+        <button id="downloadPdfBtn" class="btn" disabled title="PDF’i cihazınıza indirin">⬇️ İndir</button>
+        <button id="sharePdfBtn" class="btn" disabled title="Tarayıcı destekliyse PDF’i paylaşın">📤 Paylaş</button>
+      </div>
+    </div>
+    <div class="preview">
+      <img id="previewImg" alt="Önizleme" />
+    </div>
+    <div class="pages">
+      <div class="pages-header">Sayfalar</div>
+      <div id="pagesList" class="pages-list"></div>
+    </div>
+    <div class="pdf-panel">
+      <div class="pdf-header">PDF Önizleme</div>
+      <iframe id="pdfFrame" class="pdf-frame"></iframe>
+    </div>
+    <div id="status" class="status"></div>
+  </div>
+
+  <div id="signModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>İmza Pad</span>
+        <button id="closeSignPadBtn" class="icon">✕</button>
+      </div>
+      <canvas id="signCanvas"></canvas>
+      <div class="modal-actions">
+        <button id="clearSignBtn" class="btn">Temizle</button>
+        <button id="applySignBtn" class="btn">İmzayı Uygula</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
